@@ -8,19 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		1BD522711FE59FFC008BAC05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD522701FE59FFC008BAC05 /* AppDelegate.swift */; };
-		1BD522731FE59FFC008BAC05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD522721FE59FFC008BAC05 /* ViewController.swift */; };
 		1BD522751FE59FFC008BAC05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD522741FE59FFC008BAC05 /* Assets.xcassets */; };
 		1BD522781FE59FFC008BAC05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD522761FE59FFC008BAC05 /* Main.storyboard */; };
+		1BD522811FE5D078008BAC05 /* JSSapiFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD522801FE5D078008BAC05 /* JSSapiFunctions.swift */; };
+		1BD522841FE5D22B008BAC05 /* loginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD522831FE5D22A008BAC05 /* loginController.swift */; };
+		1BD522861FE61E9F008BAC05 /* mainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD522851FE61E9F008BAC05 /* mainInterfaceController.swift */; };
+		1BD522881FE63B23008BAC05 /* computerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD522871FE63B23008BAC05 /* computerButton.png */; };
+		1BD5228A1FE63B30008BAC05 /* iOSbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD522891FE63B30008BAC05 /* iOSbutton.png */; };
+		1BD5228C1FE63CD6008BAC05 /* iOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5228B1FE63CD6008BAC05 /* iOSViewController.swift */; };
+		1BD5228E1FE63CE8008BAC05 /* computersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5228D1FE63CE8008BAC05 /* computersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1BD5226D1FE59FFC008BAC05 /* SATk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SATk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD522701FE59FFC008BAC05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1BD522721FE59FFC008BAC05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1BD522741FE59FFC008BAC05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BD522771FE59FFC008BAC05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1BD522791FE59FFC008BAC05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BD5227A1FE59FFC008BAC05 /* SATk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SATk.entitlements; sourceTree = "<group>"; };
+		1BD522801FE5D078008BAC05 /* JSSapiFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSapiFunctions.swift; sourceTree = "<group>"; };
+		1BD522831FE5D22A008BAC05 /* loginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginController.swift; sourceTree = "<group>"; };
+		1BD522851FE61E9F008BAC05 /* mainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainInterfaceController.swift; sourceTree = "<group>"; };
+		1BD522871FE63B23008BAC05 /* computerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = computerButton.png; sourceTree = "<group>"; };
+		1BD522891FE63B30008BAC05 /* iOSbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOSbutton.png; sourceTree = "<group>"; };
+		1BD5228B1FE63CD6008BAC05 /* iOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewController.swift; sourceTree = "<group>"; };
+		1BD5228D1FE63CE8008BAC05 /* computersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = computersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +66,14 @@
 			isa = PBXGroup;
 			children = (
 				1BD522701FE59FFC008BAC05 /* AppDelegate.swift */,
-				1BD522721FE59FFC008BAC05 /* ViewController.swift */,
+				1BD5228D1FE63CE8008BAC05 /* computersViewController.swift */,
+				1BD5228B1FE63CD6008BAC05 /* iOSViewController.swift */,
+				1BD522851FE61E9F008BAC05 /* mainInterfaceController.swift */,
+				1BD522801FE5D078008BAC05 /* JSSapiFunctions.swift */,
+				1BD522831FE5D22A008BAC05 /* loginController.swift */,
 				1BD522741FE59FFC008BAC05 /* Assets.xcassets */,
+				1BD522871FE63B23008BAC05 /* computerButton.png */,
+				1BD522891FE63B30008BAC05 /* iOSbutton.png */,
 				1BD522761FE59FFC008BAC05 /* Main.storyboard */,
 				1BD522791FE59FFC008BAC05 /* Info.plist */,
 				1BD5227A1FE59FFC008BAC05 /* SATk.entitlements */,
@@ -96,6 +114,11 @@
 					1BD5226C1FE59FFC008BAC05 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -122,8 +145,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BD522881FE63B23008BAC05 /* computerButton.png in Resources */,
 				1BD522751FE59FFC008BAC05 /* Assets.xcassets in Resources */,
 				1BD522781FE59FFC008BAC05 /* Main.storyboard in Resources */,
+				1BD5228A1FE63B30008BAC05 /* iOSbutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BD522731FE59FFC008BAC05 /* ViewController.swift in Sources */,
+				1BD522811FE5D078008BAC05 /* JSSapiFunctions.swift in Sources */,
+				1BD5228E1FE63CE8008BAC05 /* computersViewController.swift in Sources */,
+				1BD522861FE61E9F008BAC05 /* mainInterfaceController.swift in Sources */,
+				1BD5228C1FE63CD6008BAC05 /* iOSViewController.swift in Sources */,
+				1BD522841FE5D22B008BAC05 /* loginController.swift in Sources */,
 				1BD522711FE59FFC008BAC05 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,7 +292,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SATk/SATk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2CK4Z8XF4C;
@@ -279,7 +307,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SATk/SATk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2CK4Z8XF4C;
