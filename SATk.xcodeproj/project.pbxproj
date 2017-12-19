@@ -17,6 +17,7 @@
 		1BD5228A1FE63B30008BAC05 /* iOSbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD522891FE63B30008BAC05 /* iOSbutton.png */; };
 		1BD5228C1FE63CD6008BAC05 /* iOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5228B1FE63CD6008BAC05 /* iOSViewController.swift */; };
 		1BD5228E1FE63CE8008BAC05 /* computersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5228D1FE63CE8008BAC05 /* computersViewController.swift */; };
+		1BE7F7F51FE842E000074238 /* ComputerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7F7F41FE842E000074238 /* ComputerRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		1BD522891FE63B30008BAC05 /* iOSbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOSbutton.png; sourceTree = "<group>"; };
 		1BD5228B1FE63CD6008BAC05 /* iOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewController.swift; sourceTree = "<group>"; };
 		1BD5228D1FE63CE8008BAC05 /* computersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = computersViewController.swift; sourceTree = "<group>"; };
+		1BE7F7F41FE842E000074238 /* ComputerRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputerRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				1BD522851FE61E9F008BAC05 /* mainInterfaceController.swift */,
 				1BD522801FE5D078008BAC05 /* JSSapiFunctions.swift */,
 				1BD522831FE5D22A008BAC05 /* loginController.swift */,
+				1BE7F7F41FE842E000074238 /* ComputerRecord.swift */,
 				1BD522741FE59FFC008BAC05 /* Assets.xcassets */,
 				1BD522871FE63B23008BAC05 /* computerButton.png */,
 				1BD522891FE63B30008BAC05 /* iOSbutton.png */,
@@ -165,6 +168,7 @@
 				1BD5228C1FE63CD6008BAC05 /* iOSViewController.swift in Sources */,
 				1BD522841FE5D22B008BAC05 /* loginController.swift in Sources */,
 				1BD522711FE59FFC008BAC05 /* AppDelegate.swift in Sources */,
+				1BE7F7F51FE842E000074238 /* ComputerRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
