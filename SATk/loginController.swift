@@ -62,6 +62,7 @@ class loginController: NSViewController {
             let mainVC = segue.destinationController as! mainInterfaceController;
             mainVC.apiUser = txtApiUser.stringValue
             mainVC.apiPass = txtApiPass.stringValue
+            mainVC.jssUrl = txtJSSUrl.stringValue
         }
     }
     

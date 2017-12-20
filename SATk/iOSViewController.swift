@@ -12,6 +12,7 @@ class iOSViewController: NSViewController {
     
     var apiUser: String = ""
     var apiPass: String = ""
+    var jssUrl: String = ""
     
     @IBOutlet weak var lblTest1: NSTextField!
     @IBOutlet weak var lblTest2: NSTextField!
@@ -32,6 +33,7 @@ class iOSViewController: NSViewController {
             let mainVC = segue.destinationController as! mainInterfaceController;
             mainVC.apiUser = apiUser
             mainVC.apiPass = apiPass
+            mainVC.jssUrl = jssUrl
         }
     }
     
