@@ -17,6 +17,11 @@ class loginController: NSViewController {
     
     @IBOutlet weak var lblUserLoginStatus: NSTextField!
     
+    @IBAction func txtLoginAction(_ sender: NSSecureTextField) {
+        
+        btnLogin((Any).self)
+    }
+    
     @IBAction func btnLogin(_ sender: Any) {
         
         let apiUsername = txtApiUser.stringValue
@@ -25,15 +30,12 @@ class loginController: NSViewController {
         
         if (apiUsername != "") && (apiPassword != "") && (jssUrl != ""){
             
-            let (output, error, status) = jssCalls.runCommand(args: "curl","-H", "Accept: text/xml", "-s","-f","-k","-u", apiUsername + ":" + apiPassword, jssUrl + "/JSSResource/accounts/username/" + apiUsername)
+            let (output, error, status) = jssCalls.runCommand(args: "curl","-H", "Accept: text/xml", "-s","-f","-k","-u", apiUsername + ":" + apiPassword, jssUrl + "/JSSResource/computergroups")
             
             print("program exited with status \(status)")
             
             if status == 0 {
                 
-                let returnedData = jssCalls.getXMLTags(output: [output[0]],tagTitle: "access_level")
-                
-                lblUserLoginStatus.stringValue = returnedData[0]
                 gotoMain(apiUser: apiUsername)
                 
             }else {

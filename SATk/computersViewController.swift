@@ -11,6 +11,12 @@ import Cocoa
 class computersViewController: NSViewController {
     @IBOutlet var computerRecordArrayController: NSArrayController!
     @IBOutlet weak var tblComputers: NSTableView!
+    @IBOutlet weak var cmbComputerGroupList: NSComboBox!
+    
+    @IBOutlet weak var lblGrpName: NSTextField!
+    @IBOutlet weak var lblGrpType: NSTextField!
+    @IBOutlet weak var lblGrpCount: NSTextField!
+
     
     var sortDirection = "ascending"
     
@@ -23,15 +29,13 @@ class computersViewController: NSViewController {
         
         // Do any additional setup after loading the view.
         
-        let apiUser = self.apiUser
-        let apiPass = self.apiPass
-        let jssUrl = self.jssUrl
+//        let apiUser = self.apiUser
+//        let apiPass = self.apiPass
+//        let jssUrl = self.jssUrl
         
-        let computers = [("m111-128005", "111456789012", "111456"),("m222-128005", "222456789012", "222456"),("m333-128005", "333456789012", "333456")]
-        for (name, serialNum, jssID) in computers {
-            let computerRecord = Computer(name: name, serialNum: serialNum, jssID: jssID)
-            computerRecordArrayController.addObject(computerRecord)
-        }
+        getComputerGroupList()
+        
+        
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
@@ -40,6 +44,7 @@ class computersViewController: NSViewController {
             let mainVC = segue.destinationController as! mainInterfaceController;
             mainVC.apiUser = apiUser
             mainVC.apiPass = apiPass
+            mainVC.jssUrl = jssUrl
         }
     }
     
@@ -118,26 +123,22 @@ class computersViewController: NSViewController {
         computerRecordArrayController.rearrangeObjects()
     }
     
-    func getComputerStaticGroupList() {
+    func getComputerGroupList() {
         
         if (apiUser != "") && (apiPass != "") && (jssUrl != ""){
-            
-            let (output, error, status) = jssCalls.runCommand(args: "curl","-H", "Accept: text/xml", "-s","-f","-k","-u", apiUser + ":" + apiPass, jssUrl + "/JSSResource/computergroups" + " -X GET 2>/dev/null | xmllint --format - | grep -B1 '<is_smart>false</is_smart>' | awk -F'>|<' '/<name>/{print $3}'")
-            
-//            set SerialGroupList to do shell script "curl -u " & apiuser & ":'" & apipass & "' " & jssurl & "/JSSResource/" & gT & " -X GET 2>/dev/null | xmllint --format - | grep -B1 '<is_smart>" & gS & "</is_smart>' | awk -F'>|<' '/<name>/{print $3}'" as string
+              
+            let (output, error, status) = jssCalls.runCommand(args: "curl","-H", "Accept: text/xml", "-s","-f","-k","-u", apiUser + ":" + apiPass, jssUrl + "/JSSResource/computergroups")
             
             print("program exited with status \(status)")
             
             if status == 0 {
                 
-                let returnedData = jssCalls.getXMLTags(output: [output[0]],tagTitle: "access_level")
+                let returnedDataGroupNames = jssCalls.getXMLTags(output: [output[0]],tagTitle: "name")
                 
-//                lblUserLoginStatus.stringValue = returnedData[0]
-//                gotoMain(apiUser: apiUsername)
+                cmbComputerGroupList.addItems(withObjectValues: returnedDataGroupNames)
                 
             }else {
-                
-//                lblUserLoginStatus.stringValue = "Access Denied"
+                print("Error in Curl statement")
                 
             }
             
@@ -148,10 +149,81 @@ class computersViewController: NSViewController {
             
             
         } else {
-            
-//            lblUserLoginStatus.stringValue = "Missing Parameter"
+            print("Missing parameter: U:\(apiUser) P:\(apiPass) J:\(jssUrl)")
             
         }
     }
+    
+    @IBAction func cmbCompGrpList(_ sender: NSComboBox) {
+        
+        let range = NSMakeRange(0, (computerRecordArrayController.arrangedObjects as AnyObject).count)
+        computerRecordArrayController.remove(atArrangedObjectIndexes: NSIndexSet(indexesIn: range) as IndexSet)
+        
+        let characterSet: CharacterSet = CharacterSet(charactersIn: " /#").inverted
+        
+        let selectedGroup = cmbComputerGroupList.objectValueOfSelectedItem as! String
+        
+        lblGrpName.stringValue = selectedGroup
+        
+        let selGrp = selectedGroup.addingPercentEncoding(withAllowedCharacters: characterSet) as AnyObject
+        
+        
+        let (output, error, status) = jssCalls.runCommand(args: "curl","-H", "Accept: text/xml", "-s","-k","-u", apiUser + ":" + apiPass, jssUrl + "/JSSResource/computergroups/name/\(selGrp)")
+        
+//        if output.count > 0 {
+//            print("program output:")
+//            print(output)
+//        }
+        
+        print("program exited with status \(status)")
+        
+        if status == 0 {
+            
+            let grpType = jssCalls.getXMLTags(output: [output[0]],tagTitle: "is_smart")
+            
+            if grpType[0] == "true" {
+                
+                lblGrpType.stringValue = "Smart"
+            } else {
+                lblGrpType.stringValue = "Static"
+            }
+            
+            let returnedData = jssCalls.getXMLTags(output: [output[0]],tagTitle: "computers")
+            //print(returnedData)
+            
+            let grpCount = jssCalls.getXMLTags(output: [returnedData[0]],tagTitle: "size")
+            lblGrpCount.stringValue = grpCount[0]
+            
+            let returnedDataID = jssCalls.getXMLTags(output: [returnedData[0]],tagTitle: "id")
+            //print(returnedDataID)
+            
+            let returnedDataName = jssCalls.getXMLTags(output: [returnedData[0]],tagTitle: "name")
+            //print(returnedDataName)
+            
+            let returnedDataSerial = jssCalls.getXMLTags(output: [returnedData[0]],tagTitle: "serial_number")
+            //print(returnedDataSerial)
+            
+            for (index, _) in returnedDataName.enumerated() {
+                let computerRecord = Computer(name: returnedDataName[index], serialNum: returnedDataSerial[index], jssID: returnedDataID[index])
+                computerRecordArrayController.addObject(computerRecord)
+            }
+            
+            
+        }else {
+            print("Error in Curl statement")
+            
+        }
+        
+        
+        if error.count > 0 {
+            print("error output:")
+            print(error)
+        }
+        
+        
+        
+    }
+    
+    
 
 }
